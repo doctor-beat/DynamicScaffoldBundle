@@ -1,7 +1,9 @@
 DynamicScaffoldBundle
 =====================
 
-A symfony2 bundle that handles dynamic scaffolding the grails way.
+A symfony2 bundle that handles dynamic scaffolding the grails way. 
+
+No generated code that gets outdated and that pollutes your project. Any update to your entites is directly reflected in your scaffold-screens.
 
 Limitations:
   - only works with entity with a single key (e.g. 1 column key)
