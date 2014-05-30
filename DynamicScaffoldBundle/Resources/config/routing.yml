@@ -1,9 +1,4 @@
 scaffold:
-    #path:     /scaffold
-#    defaults: { _controller: docdata_wms.monitor.controller:indexAction}
-    #defaults: { _controller: DocdataWMSBundle:Scaffold:index}
-    
-    #resource: "@Docdata/WMSBundle/Controller/StdProductContainerController.php"
     resource: "@DynamicScaffoldBundle/Controller"
     type:     annotation
 

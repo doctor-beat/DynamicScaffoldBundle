@@ -208,7 +208,7 @@ class ScaffoldController extends Controller {
      *
      * @Route("/{bundlename}/{entityname}/{id}", name="scaffold_update")
      * @Method("PUT")
-     * @Template("DocdataWMSBundle:Scaffold:edit.html.twig")
+     * @Template("DynamicScaffoldBundle:Scaffold:edit.html.twig")
      */
     public function updateAction(Request $request, $bundlename, $entityname, $id)
     {

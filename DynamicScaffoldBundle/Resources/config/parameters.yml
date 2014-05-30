@@ -1,6 +1,4 @@
 # This file is auto-generated during the composer install
 parameters:
-    # default db settings
-    wms_database_driver: pdo_mysql
     
     scaffold_entity_manager: wms
