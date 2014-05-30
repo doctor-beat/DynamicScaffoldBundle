@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+body,
+input, select, textarea {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.1;
+}
+
+html {
+	height: 100%;
+}
+body {
+	background: #ffffff;
+	color: #333333;
+	margin: 0 auto;
+	max-width: 960px;
+}
+a:link, a:visited, a:hover {
+	color: #48802c;
+}
+
+a:hover, a:active {
+	outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+}
+
+h1 {
+	color: #48802c;
+	font-weight: normal;
+	font-size: 1.25em;
+	margin: 0.8em 0 0.3em 0;
+}
+
+ul {
+	padding: 0;
+}
+
+img {
+	border: 0;
+}
+
+ul {
+	overflow: hidden;
+	padding-left: 0;
+	zoom: 1;
+}
+
+ul li {
+	display: block;
+	float: left;
+	list-style-type: none;
+	margin-right: 0.5em;
+	padding: 0;
+}
+ul.list li {
+	float: none;
+}
+
+a {
+	color: #666666;
+	display: block;
+	/*padding: 0.25em 0.7em; */
+	text-decoration: none;
+}
+
+a:active, a:visited {
+	/*color: #666666; */
+}
+
+a:focus, a:hover {
+	background-color: #999999;
+	color: #ffffff;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.form-group label, .record_properties th{
+    width: 150px;
+    display: inline-block;
+    text-align: left;
+}
+button, .checkbox label {
+    margin-left: 150px;
+}
+.bootstrap-date, .bootstrap-datetime, .bootstrap-time {
+    display: inline-block;
+}
+
+        </style>
+    </head>
+    <body>
+    {% block body %}{% endblock %}
+    </body>
+</html>

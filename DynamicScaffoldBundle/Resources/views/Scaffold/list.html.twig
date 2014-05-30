@@ -1,0 +1,74 @@
+{% extends "DynamicScaffoldBundle::layout.html.twig" %}
+
+{% if (not metadata.isIdentifierComposite) %}
+    {% set identifier = metadata.identifier %}
+{% endif %}
+
+{% block body %}
+
+    <h1>{{ entityname }} list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+            {%- for field, fieldtype in fields %}
+
+                <th>{{ field|capitalize }}</th>
+
+            {%- endfor %}
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                
+                {% for field, fieldtype in fields %}
+                    {% if identifier is defined and 
+                            attribute(fieldtype, 'id') is defined and 
+                            attribute(fieldtype, 'id') == identifier.0 %}
+                        <td title='edit'><a href="{{ path('scaffold_edit', {'id': attribute(entity, field), 'entityname': entityname, 'bundlename': bundle})  }}">
+                                {{ attribute(entity, field) }}</a></td>
+                    {% else %}
+                        <td>
+                            {% if attribute(entity, field).timestamp is defined %}
+                                {{ attribute(entity, field)|date('Y-m-d') }}
+                            {% else %}
+                                {{ attribute(entity, field) }}
+                            {% endif %}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+                <td>
+                    {% if identifier is defined %}
+                        <ul>
+                            <li>
+                                <a href="{{
+                path('scaffold_delete_form', {'id' : attribute(entity, identifier.0), 'entityname': entityname, 'bundlename': bundle}) 
+                                            }}">delete</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{path('scaffold_new', {'entityname': entityname, 'bundlename': bundle})}}">
+                Create a new entry
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('scaffold_entities', {'bundlename': bundle}) }}">
+                List entities
+            </a>
+        </li>
+    </ul>
+
+{% endblock %}
+
+

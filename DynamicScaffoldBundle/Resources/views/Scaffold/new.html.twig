@@ -1,0 +1,15 @@
+{% extends 'DynamicScaffoldBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>{{ metadata.name }} creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('scaffold_list', {'entityname': entityname, 'bundlename': bundle}) }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

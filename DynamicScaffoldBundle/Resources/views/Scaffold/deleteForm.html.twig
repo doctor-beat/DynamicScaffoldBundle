@@ -1,0 +1,33 @@
+{% extends "DynamicScaffoldBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>{{ entityname }} delete</h1>
+
+    <table class="record_properties">
+        <tbody>
+            {% for field, fieldtype in fields %}
+                <tr>
+                    <th>{{field}}</th>
+                    <td>
+                            {% if attribute(entity, field).timestamp is defined %}
+                                {{ attribute(entity, field)|date('Y-m-d') }}
+                            {% else %}
+                                {{ attribute(entity, field) }}
+                            {% endif %}                        
+                    </td>
+                </tr>
+             {% endfor %}
+             
+        </tbody>
+    </table>
+             {{ form(form) }}
+    
+
+        <ul class="record_actions">
+        <li>
+        <a href="{{ path('scaffold_list', {'bundlename' : bundle, 'entityname': entityname}) }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

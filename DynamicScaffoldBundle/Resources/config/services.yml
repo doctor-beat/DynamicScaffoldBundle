@@ -1,0 +1,4 @@
+parameters:
+#    docdata_wms.example.class: Docdata\WMSBundle\Example
+
+services: ~

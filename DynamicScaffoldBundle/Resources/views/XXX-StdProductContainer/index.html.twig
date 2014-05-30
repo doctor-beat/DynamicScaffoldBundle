@@ -1,0 +1,57 @@
+{% extends "DocdataWMSBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>StdProductContainer list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Setid</th>
+                <th>Description</th>
+                <th>Maxweight</th>
+                <th>Active</th>
+                <th>Priority</th>
+                <th>Cost</th>
+                <th>Height</th>
+                <th>Width</th>
+                <th>Depth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('stdproductcontainer_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.maxWeight }}</td>
+                <td>{{ entity.active_yn }}</td>
+                <td>{{ entity.priority }}</td>
+                <td>{{ entity.cost }}</td>
+                <td>{{ entity.height }}</td>
+                <td>{{ entity.width }}</td>
+                <td>{{ entity.depth }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('stdproductcontainer_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('stdproductcontainer_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('stdproductcontainer_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

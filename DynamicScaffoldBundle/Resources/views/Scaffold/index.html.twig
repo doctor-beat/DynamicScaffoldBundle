@@ -1,0 +1,17 @@
+{% extends "DynamicScaffoldBundle::layout.html.twig" %}
+
+
+{% block body %}
+
+    <h1>Bundles list</h1>
+
+
+    <ul class='list'>
+       {% for bundle in bundles %}
+        <li><a href='{{path("scaffold_entities", {'bundlename' : bundle})}}'>{{bundle}}</a></li>
+       {% endfor %}
+    </ul>
+    
+{% endblock %}
+
+

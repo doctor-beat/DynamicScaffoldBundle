@@ -1,0 +1,33 @@
+imports:
+    - { resource: parameters.yml }
+
+doctrine:
+   dbal:
+       #default_connection: wms
+       connections:
+         xxx:
+           driver:   %wms_database_driver%
+           host:     %wms_database_host%
+           port:     %wms_database_port%
+           dbname:   %wms_database_name%
+           user:     %wms_database_user%
+           password: %wms_database_password%
+           charset:  UTF8
+           mapping_types:
+             enum: string
+           options:
+             quote_identifier: true
+
+monolog:
+    handlers:
+        #add a custom logger that only logs to the custom channel (see services.logchannel.custom)
+        wms:
+            type:  rotating_file
+            max_files: 5
+            path:  %kernel.logs_dir%/scaffold.log
+            level: info
+            channels: [wms]
+            #filepermissions: 666
+            formatter: docdata_wms.logger.format
+
+    

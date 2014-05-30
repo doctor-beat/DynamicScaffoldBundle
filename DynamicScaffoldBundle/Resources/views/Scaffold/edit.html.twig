@@ -1,0 +1,17 @@
+{% extends "DynamicScaffoldBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>{{ entityname }} list</h1>
+    
+    <div class="form-group"><label>Id:</label> {{ id }}<br/></div>
+    
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('scaffold_list', {'bundlename' : bundle, 'entityname': entityname}) }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
