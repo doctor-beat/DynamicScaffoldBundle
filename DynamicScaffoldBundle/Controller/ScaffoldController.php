@@ -19,6 +19,7 @@
  * X table layout of form
  * - field validation etc.
  * - paginate the index pages
+ * - (maybe) cache the metadata for better performance
  */
 
 namespace DynamicScaffoldBundle\Controller;
