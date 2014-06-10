@@ -6,19 +6,17 @@
  * 
  * Configuration:
  * - entities must each be flagged as scaffoldable with a constant 'SCAFFOLD' with value true
+ * - uses the default entity-manager OR from a parameter 'scaffold_entity_manager'
  * 
  * TODO:
- * X move to bundle
  * - enable csrf
- * X pass in classname & repository
- * X make entity-mgr a parameter
  * - css styling
  * - handle more field-types properly
  * - handle relations between entities (complex)
- * X indexing of Bundles and entities
- * X table layout of form
  * - field validation etc.
  * - paginate the index pages
+ * - handle multiple entiymanagers
+ * - make it work against propel
  * - (maybe) cache the metadata for better performance
  */
 
@@ -37,8 +35,6 @@ use Doctrine\Bundle\DoctrineBundle\Mapping\MetadataFactory;
  * @Route("")
  */
 class ScaffoldController extends Controller {
-    #private $scaffold = 'SCAFFOLD';
-    const ENTITY_MGR = 'wms';
     const ENTITY_MGR_PARAM = 'scaffold_entity_manager';
     
     
