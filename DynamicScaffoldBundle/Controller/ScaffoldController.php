@@ -18,6 +18,7 @@
  * - handle multiple entiymanagers
  * - make it work against propel
  * - (maybe) cache the metadata for better performance
+ * - split the controller into proper models/gof-classes
  */
 
 namespace DynamicScaffoldBundle\Controller;

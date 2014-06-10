@@ -5,7 +5,7 @@ imports:
 monolog:
     handlers:
         #add a custom logger that only logs to the custom channel (see services.logchannel.custom)
-        wms:
+        scaffold:
             type:  rotating_file
             max_files: 5
             path:  %kernel.logs_dir%/scaffold.log
