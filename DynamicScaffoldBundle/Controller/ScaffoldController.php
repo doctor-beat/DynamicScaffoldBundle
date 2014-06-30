@@ -11,7 +11,7 @@
  * TODO:
  * - enable csrf
  * - css styling
- * - handle more field-types properly
+ * X handle more field-types properly
  * - handle relations between entities (complex)
  * - field validation etc.
  * - paginate the index pages
@@ -187,7 +187,7 @@ class ScaffoldController extends Controller {
                     'bundlename'=> $bundlename, 
                     'entityname' => $entityname,
                 )));
-            }            
+            }        
         }
 
         return array(
@@ -323,7 +323,7 @@ class ScaffoldController extends Controller {
     }
     
     private function getFormBuilder($entity, $metadata = null, $id) {
-        $builder = $this->createFormBuilder($entity, array(  'csrf_protection' => false));
+        $builder = $this->createFormBuilder($entity, array(  'csrf_protection' => true));
 
 #        echo '<pre>';
 #        var_dump($metadata);
