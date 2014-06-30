@@ -9,7 +9,7 @@
  * - uses the default entity-manager OR from a parameter 'scaffold_entity_manager'
  * 
  * TODO:
- * - enable csrf
+ * X enable csrf
  * - css styling
  * X handle more field-types properly
  * - handle relations between entities (complex)
