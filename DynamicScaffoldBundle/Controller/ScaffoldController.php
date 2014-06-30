@@ -325,6 +325,10 @@ class ScaffoldController extends Controller {
     private function getFormBuilder($entity, $metadata = null, $id) {
         $builder = $this->createFormBuilder($entity, array(  'csrf_protection' => false));
 
+        echo '<pre>';
+        var_dump($metadata);
+        echo '</pre>';
+        
         if ($metadata) {
             foreach ($metadata->fieldMappings as $field => $details) {
                 #skip id columns
@@ -333,8 +337,17 @@ class ScaffoldController extends Controller {
                     $opts = array('required' => ! $details['nullable'] );
                     //TODO complete the type list
                     switch ($details['type']) {
+                        case 'smallint':
+                        case 'bigint':
                         case 'integer':
                             $type = 'integer';
+                            break;
+                        case 'decimal':
+                            $type = 'number';
+                            break;
+                        case 'text':
+                            $type = 'textarea';
+                            $opts["attr"] = array("cols" => "50", "rows" => 5);
                             break;
                         case 'boolean':
                             $type = 'checkbox';
@@ -345,8 +358,13 @@ class ScaffoldController extends Controller {
                             $opts['widget'] = 'single_text';
                             break;
                         case 'datetime':
+                        case 'datetimetz':
                             $type = 'datetime';
                             break;
+                        case 'time':
+                            $type = 'time';
+                            break;
+                        case 'string':
                         default: 
                             $type = 'text';
                             break;
