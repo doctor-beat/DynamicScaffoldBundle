@@ -325,9 +325,9 @@ class ScaffoldController extends Controller {
     private function getFormBuilder($entity, $metadata = null, $id) {
         $builder = $this->createFormBuilder($entity, array(  'csrf_protection' => false));
 
-        echo '<pre>';
-        var_dump($metadata);
-        echo '</pre>';
+#        echo '<pre>';
+#        var_dump($metadata);
+#        echo '</pre>';
         
         if ($metadata) {
             foreach ($metadata->fieldMappings as $field => $details) {
@@ -335,7 +335,6 @@ class ScaffoldController extends Controller {
                 if (! @$details['id']) {
                     $type = null;
                     $opts = array('required' => ! $details['nullable'] );
-                    //TODO complete the type list
                     switch ($details['type']) {
                         case 'smallint':
                         case 'bigint':
